@@ -17,7 +17,7 @@ import viper.silver.verifier.Verifier
  * This file is based on the one from the Silicon source code.
  */
 class SiliconCommutativityTests extends SilSuite {
-  private val commutativityTestDirectories = Seq("commutativity-tests")
+  private val commutativityTestDirectories = Seq("commutativity-tests/lockspecs", "commutativity-tests/statements", "commutativity-tests/evaluation")
 
   val testDirectories = commutativityTestDirectories 
 
@@ -45,7 +45,7 @@ class SiliconCommutativityTests extends SilSuite {
 
   lazy val verifiers = List(createSiliconInstance())
 
-  val commandLineArguments: Seq[String] = Seq("--plugin", "commutativity.CommutativityPlugin")
+  val commandLineArguments: Seq[String] = Seq("--plugin", "commutativity.CommutativityPlugin", "--checkTimeout=30")
 
   private def createSiliconInstance() = {
     val args =
